@@ -154,6 +154,10 @@ android {
 
 **Example Usage (PhotoEditor):**
 ```kotlin
+import android.graphics.Color
+import android.graphics.Typeface
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import ja.burhanrashid52.photoeditor.PhotoEditor
 import ja.burhanrashid52.photoeditor.PhotoEditorView
 
