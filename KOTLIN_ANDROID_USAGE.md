@@ -154,12 +154,16 @@ android {
 
 **Example Usage (PhotoEditor):**
 ```kotlin
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Typeface
+import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import ja.burhanrashid52.photoeditor.PhotoEditor
 import ja.burhanrashid52.photoeditor.PhotoEditorView
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
     private lateinit var photoEditor: PhotoEditor
@@ -175,13 +179,15 @@ class MainActivity : AppCompatActivity() {
             .setDefaultTextTypeface(Typeface.DEFAULT)
             .build()
             
-        // Load image
-        photoEditorView.source.setImageBitmap(yourBitmap)
+        // Load image from resources or file
+        val bitmap: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.sample_image)
+        photoEditorView.source.setImageBitmap(bitmap)
         
         // Add text
         photoEditor.addText("Hello", Color.RED)
         
         // Save image
+        val filePath = File(externalCacheDir, "edited_image_${System.currentTimeMillis()}.jpg").absolutePath
         photoEditor.saveAsFile(filePath, object : PhotoEditor.OnSaveListener {
             override fun onSuccess(imagePath: String) {
                 Log.d("PhotoEditor", "Image saved: $imagePath")
