@@ -187,7 +187,10 @@ class MainActivity : AppCompatActivity() {
         photoEditor.addText("Hello", Color.RED)
         
         // Save image
-        val filePath = File(externalCacheDir, "edited_image_${System.currentTimeMillis()}.jpg").absolutePath
+        val filePath = File(
+            externalCacheDir ?: cacheDir, 
+            "edited_image_${System.currentTimeMillis()}.jpg"
+        ).absolutePath
         photoEditor.saveAsFile(filePath, object : PhotoEditor.OnSaveListener {
             override fun onSuccess(imagePath: String) {
                 Log.d("PhotoEditor", "Image saved: $imagePath")
