@@ -5,6 +5,9 @@ Simple image editor for Xamarin Forms based on the [SkiaSharp](https://github.co
 
 [<h4>Nuget</h4>](https://www.nuget.org/packages/BitooBitImageEditor/)
 
+### 📱 Native Android/Kotlin Users
+**Important:** This library is built for Xamarin.Forms. If you're using native Android with Kotlin, please see [KOTLIN_ANDROID_USAGE.md](./KOTLIN_ANDROID_USAGE.md) for available options and alternative libraries.
+
 <hr/>
 
  ## Available Platforms:
